@@ -1,0 +1,24 @@
+192.168.0.10
+sample.roboshopinternal
+192.168.0[10:20]  #range of ip address if they are sequential
+
+#Institute (Company) . USA (Multi regions) , India (Multi regions)
+#web, app, db
+
+COUNTRYCODE-DCNO-APPTYPE-PROJECTCODE-ENV-INDEX.DOMAIN
+2C-2N-web/app/db-5C-1C-2N.DOMAIN
+
+us-01-web-catlg-d-01.roboshopinternal
+
+#Roboshop our scope  in lab
+[DEV]
+catalogue-dev.roboshopinternal
+cart-dev.roboshopinternal
+
+[PROD]
+catalogue-prod.roboshopinternal
+cart-prod.roboshopinternal
+
+[CATALOGUE]
+catalogue-dev.roboshopinternal
+catalogue-prod.roboshopinternal
