@@ -5,7 +5,7 @@ sample.roboshopinternal
 #Institute (Company) . USA (Multi regions) , India (Multi regions)
 #web, app, db
 
-COUNTRYCODE-DCNO-APPTYPE-PROJECTCODE-ENV-INDEX.DOMAIN
+COUNTRYCODE-DCNO-APPTYPE-PROJECTCODE-ENV-INDEX.DOMAIN  #DCNO:DATACENTRE NUMBER
 2C-2N-web/app/db-5C-1C-2N.DOMAIN
 
 us-01-web-catlg-d-01.roboshopinternal
