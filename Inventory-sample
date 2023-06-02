@@ -10,7 +10,7 @@ COUNTRYCODE-DCNO-APPTYPE-PROJECTCODE-ENV-INDEX.DOMAIN  #DCNO:DATACENTRE NUMBER
 
 us-01-web-catlg-d-01.roboshopinternal
 
-#Roboshop our scope  in lab
+#Rvoboshop our scope  in lab
 [DEV]
 catalogue-dev.roboshopinternal
 cart-dev.roboshopinternal

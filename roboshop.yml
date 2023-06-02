@@ -1,0 +1,4 @@
+- name- Setup froentend component
+  hosts: FRONTEND
+  roles:
+   - frontend

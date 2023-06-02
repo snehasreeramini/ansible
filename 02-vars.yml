@@ -8,7 +8,7 @@
      msg: URL = {{URL}}
 
 #If we declare a variable on play level then all the tasks can acess that variable
-
+#playlevel variables
 - name: Play level variables from a file
   hosts: all
   vars_files:
@@ -17,3 +17,44 @@
     - name: Print URL
       ansible.builtin.debug:
        msg: URL = {{URL}}
+
+#task level variables
+- name: Taks Level variables
+  hosts: all
+  tasks:
+    - name: Print URL
+      ansible.builtin.debug:
+      msg: URL = {{URL}}
+      vars:
+       URL: hosts.example.com
+# if we declare a variable on tasks level then only that tasks can access that variables
+
+#inventory level variables
+- name: Inventory Level variables
+  hosts: all
+  tasks:
+    - name: Print URL
+      ansible.builtin.debug:
+      msg: URL = {{URL}}
+
+#command line level variables
+- name: Command Level variables
+  hosts: all
+  tasks:
+    - name: Print URL
+      ansible.builtin.debug:
+      msg: URL = {{URL}}
+
+
+#pass in command line as ansible-playbook -i inv -u centos -k 02-vars.yml -e URL=cli.example.com
+
+- name: Fact variables
+  hosts: all
+  tasks:
+    - name: Print HostName
+      ansible.builtin.debug:
+      msg: Architecture = {{ansible_architecture}}, IP ADDRESS= {{ansible_eth0.ipv4.address}}
+
+
+#output comes in json format
+
