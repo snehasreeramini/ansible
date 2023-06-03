@@ -2,3 +2,66 @@
   ansible.builtin.debug:
     msg: Frontend
 
+- name: Install Nginx
+  ansible.builtin.yum:
+       name: nginx
+       state: installed
+
+- name: Download and extract frontend
+  include_role:
+    name: common
+    tasks_from: download
+
+- name: Cleanup old HTML content
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
+
+- name: Copy the frontend content to nginx path
+  ansible.builtin.copy:
+     src: /tmp/frontend-main/static/
+     dest: /usr/share/nginx/html/
+     remote_src: yes
+
+#Note:in src and dest, ending / is very important when copying files
+
+- name: Copy Roboshop Configuration
+  ansible.builtin.copy:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+
+- name: Restart the service
+  ansible.builtin.systemd:
+     name: nginx
+     state: restarted
+     enabled: yes
+
+
+
+
+
+
+
+  The frontend is the service in RobotShop to serve the web content over Nginx.
+  
+  To Install Nginx.
+  
+  # yum install nginx -y
+  # systemctl enable nginx 
+  # systemctl start nginx 
+  Let's download the HTDOCS content and deploy under the Nginx path.
+  
+  # curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
+  Deploy in Nginx Default Location.
+  
+  # cd /usr/share/nginx/html
+  # rm -rf * 
+  # unzip /tmp/frontend.zip
+  # mv frontend-main/* .
+  # mv static/* .
+  # rm -rf frontend-master README.md
+  # mv localhost.conf /etc/nginx/default.d/roboshop.conf
+  Finally restart the service once to effect the changes.
+
+# systemctl restart nginx
+

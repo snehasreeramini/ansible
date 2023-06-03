@@ -1,2 +1,4 @@
 [FRONTEND]
 frontend.roboshopinternal
+[MONGODB]
+mongodb.roboshopinternal
