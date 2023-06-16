@@ -6,12 +6,13 @@
   ansible.builtin.yum:
     name:
       - nodejs
-      - c++
+      - gcc c++
     state: installed
 
-- name: Add the user
+- name: Add Application user
   ansible.builtin.user:
-    name: RoboShop
+    name: roboshop
+    comment: RoboShop project Application user
 
 - name: Download and extract catalogue
   include_role:
