@@ -4,3 +4,7 @@ frontend.roboshopinternal
 mongodb.roboshopinternal
 [CATALOGUE]
 catalogue.roboshopinternal
+[REDIS]
+redis.roboshopinternal
+[USER]
+user.roboshopinternal
