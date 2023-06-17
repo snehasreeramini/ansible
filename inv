@@ -8,3 +8,11 @@ catalogue.roboshopinternal
 redis.roboshopinternal
 [USER]
 user.roboshopinternal
+[CART]
+cart.roboshopinternal
+[MYSQL]
+mysql.roboshopinternal
+[SHIPPING]
+shipping.roboshopinternal
+[RABBITMQ]
+rabbitmq.roboshopinternal
