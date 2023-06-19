@@ -1,13 +1,13 @@
 - name: Create an EC2 instance with aws
   hosts: localhost
   tasks:
-    name: Create EC2 instance
+   - name: Create EC2 instance
     amazon.aws.ec2:
-    instance_type: t3.micro
-    wait: yes
-    group_id: sg-06e9dba4d9e1241fa
-    region: us-east-1
-    count: 1
-    assign_public_ip: yes
-    intsance_tags:
+     instance_type: t3.micro
+     wait: yes
+     group_id: sg-06e9dba4d9e1241fa
+     region: us-east-1
+     count: 1
+     assign_public_ip: yes
+     intsance_tags:
        Name: ansible-role-check-instance
