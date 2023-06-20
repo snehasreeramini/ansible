@@ -9,7 +9,7 @@
   tasks:
     - name: Launch instance
       ec2:
-         group: "{{ security_group_id }}"
+         group_id: "{{ security_group_id }}"
          count: 1
          instance_type: "{{ instance_type }}"
          image: "{{ image }}"
