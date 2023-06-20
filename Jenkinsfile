@@ -24,9 +24,11 @@ pipeline{
       }
 
     stage('MAIN') {
+     when{ branch 'main'
         steps {
           sh 'env'
           sh 'echo MAIN'
+        }
         }
        }
  //Here we are hardcoding role name as frontend as for demo purpose,but we need to understand which role has been really modified and we need to parse that role name,
