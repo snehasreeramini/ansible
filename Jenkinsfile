@@ -9,6 +9,7 @@ pipeline{
     SSH = credentials('SSH')
  }
  stages{
+
    stage('Only Branch') {
     steps {
       sh 'env'
@@ -24,7 +25,7 @@ pipeline{
       }
 
     stage('MAIN') {
-     when{ branch 'main'
+     when{ branch 'main'}
         steps {
           sh 'env'
           sh 'echo MAIN'
@@ -41,5 +42,4 @@ pipeline{
 //   '''
 //   }
 //   }
-}
 }
