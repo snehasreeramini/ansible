@@ -1,9 +1,9 @@
 pipeline{
   agent any
 
- options{
-   ansiColor('xterm')
- }
+//  options{
+//    ansiColor('xterm')
+//  }
 
  environment {
     SSH = credentials('SSH')
