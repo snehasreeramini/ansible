@@ -14,7 +14,8 @@ pipeline{
   //we can get that info from git commands,Here it is example. git diff HEAD@{1} --name-only | grep roles | awk -F /  '{print $2}'
   steps {
   sh '''
-    ansible-playbook roboshop-check.yml -e role_name=frontend -e ansible_username=centos -e ansible_password=DevOps321 -e ENV=sandbox
+   env
+    ansible-playbook roboshop-check.yml -e role_name=frontend -e ansible_username=centos -e ansible_password=DevOps321 -e ENV=sandbox -e CHECK_MODE=true
   '''
   }
   }

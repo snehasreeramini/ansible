@@ -1,7 +1,7 @@
 ## If any task is changed and if we want to run another task then handlers comes into picture
 ## By default handlers run at the ending of the play, This behaviour can be changed as well and run immidiate also
 - name: Restart Nginx
-  ignire_erros: yes
+  ignire_erros: "{{CHECK_MODE}}"
   ansible.builtin.systemd:
      name: nginx
      state: restarted
