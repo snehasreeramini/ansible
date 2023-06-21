@@ -26,7 +26,7 @@ pipeline{
        }
       }
 
-    stage('Promote code to prod') {
+    stage('Promote code to PROD branch') {
      when{ branch  'main'}
         steps {
           sh 'env'
@@ -44,4 +44,4 @@ pipeline{
 //   '''
 //   }
 //   }
-}
+//}
