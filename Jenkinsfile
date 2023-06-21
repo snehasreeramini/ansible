@@ -10,19 +10,19 @@ pipeline{
  }
  stages{
 
-   stage('Only Branch') {
-   when{ expression { BRANCH NAME ==~ "ROB-.*"} }
+   stage('Check Ansible Style Checks') {
+   when{ expression pattern: "ROB-.*",comparator: "REGEXP"} }
     steps {
-      sh 'env'
-      sh 'echo Only Branch'
+      echo "Ansible Style Checks"
     }
    }
 
-   stage('PR') {
-   when{ expression { BRANCH NAME ==~ "PR-.*"} }
+   stage('Run Ansible in Sandbox Environment') {
+   when{ expression pattern: "PR-.*",comparator: "REGEXP"} }
        steps {
-         sh 'env'
-         sh 'echo PR'
+         sh '''
+            ansible-playbook roboshop-check.yml -e role_name=frontend -e ansible_username=centos -e ansible_password=DevOps321 -e ENV=sandbox -e CHECK_MODE=true
+         '''
        }
       }
 
