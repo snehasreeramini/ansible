@@ -11,7 +11,7 @@ pipeline{
  stages{
 
    stage('Only Branch') {
-   when{ branch 'ROB'}
+   when{ expression { BRANCH NAME ==~ "ROB-.*"} }
     steps {
       sh 'env'
       sh 'echo Only Branch'
@@ -19,7 +19,7 @@ pipeline{
    }
 
    stage('PR') {
-   when { branch 'PR' }
+   when{ expression { BRANCH NAME ==~ "PR-.*"} }
        steps {
          sh 'env'
          sh 'echo PR'
@@ -27,7 +27,7 @@ pipeline{
       }
 
     stage('MAIN') {
-     when{ branch 'main'}
+     when{ branch  'main'}
         steps {
           sh 'env'
           sh 'echo MAIN'
