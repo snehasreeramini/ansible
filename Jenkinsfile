@@ -11,6 +11,7 @@ pipeline{
  stages{
 
    stage('Only Branch') {
+   when{ branch 'ROB'}
     steps {
       sh 'env'
       sh 'echo Only Branch'
@@ -18,6 +19,7 @@ pipeline{
    }
 
    stage('PR') {
+   when { branch 'PR' }
        steps {
          sh 'env'
          sh 'echo PR'
