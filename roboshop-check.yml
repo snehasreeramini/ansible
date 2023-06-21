@@ -36,10 +36,18 @@
   hosts: launched
   become: True
   gather_facts: True
-  ignore_errors: yes
-  roles:
-    - "{{role_name}}"
-
+  tasks:
+   - name: set the facts per host
+     set_fact:
+       INSTANCE_ID: "{{hostvars['localhost']}}"
+   - name: Import role and terminate the instance
+     block:
+       - name: Import a role
+         import_role:
+           name: "{{role_name}}"
+     always:
+      - name : Terminate instance that were probably launched
+       # Delegate_to:127.0.0.1
 - name: Terminate instances
   hosts: localhost
   tasks:
