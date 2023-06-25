@@ -9,8 +9,8 @@ pipeline {
     SSH = credentials('SSH')
  }
 
-   stages{
-      stage{ ('Test')
+   stages('MAIN'){
+   when { branch 'main' }
          steps{
          sh '''
            env
