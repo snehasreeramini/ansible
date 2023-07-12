@@ -4,7 +4,7 @@
 - name: Install NodeJS
   ansible.builtin.yum:
   name:
-     - nodejs
+     - angularjs
      - gcc c++
   state: installed
 

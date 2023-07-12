@@ -4,26 +4,30 @@
     comment: RoboShop project Application user
    register: app_user_register
 
-- name: Download and extract {{COMPONENT}}
-  ansible.builtin.unarchive:
-    src: https://github.com/roboshop-devops-project/{{COMPONENT}}/archive/main.zip
-    dest: /tmp
-    remote_src: yes
-
-- name: Download and extract {{COMPONENT}}
-  include_role:
-    name: common
-    tasks_from: download
-
 - name: Cleanup old HTML content
   ansible.builtin.file:
     path: ""{{APP_LOCATION}}""
     state: absent
 
-- name: Copy App Content
-  ansible.builtin.copy:
-    src: /tmp/{{COMPONENT}}-main/
-    dest: """{{APP_LOCATION}}"
-    remote_src: yes
-  become_user: ""{{APP_USER}}""
+### As per standard process we download the software from a release rather then from a git repo.
+### Hence we are commenting and moving with other steps to download from nexus repo.
+###commented
+#- name: Download and extract {{COMPONENT}}
+#  ansible.builtin.unarchive:
+#    src: https://github.com/roboshop-devops-project/{{COMPONENT}}/archive/main.zip
+#    dest: /tmp
+#    remote_src: yes
 
+#- name: Download and extract {{COMPONENT}}
+#  include_role:
+#    name: common
+#    tasks_from: download
+#
+#
+#- name: Copy App Content
+#  ansible.builtin.copy:
+#    src: /tmp/{{COMPONENT}}-main/
+#    dest: """{{APP_LOCATION}}"
+#    remote_src: yes
+#  become_user: ""{{APP_USER}}""
+#
