@@ -31,3 +31,13 @@
 #    remote_src: yes
 #  become_user: ""{{APP_USER}}""
 #
+-name: Create App Location
+ ansible.builtin.file:
+ path: "{{aPP_LOCATION}}"
+ state: directory
+
+- name: Download and Extract  {{COMPONENT}}
+  ansible.builtin.unarchive:
+    src: http://nexus.roboshopInternal:8081/repository/{{COMPONENT}}/{{COMPONENT}}-{{APP_VERSION}}.zip
+    dest: {{APP_LOCATION}}"
+    remote_src: yes
