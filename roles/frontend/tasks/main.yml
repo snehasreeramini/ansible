@@ -11,6 +11,9 @@
   include_role:
     name: common
     tasks_from: download
+  vars:
+    APP_USER: root
+    APP_LOCATION: /usr/share/nginz/html
 
 - name: Cleanup old HTML content
   ansible.builtin.file:

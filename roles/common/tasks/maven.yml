@@ -8,12 +8,16 @@
   include_role:
      name: common
      tasks_from: download
+  vars:
+    APP_LOCATION: "/home/roboshop/{{COMPONENT}}"
+    APP_USER: roboshop
 
-- name: Make Maven Package
-  ansible.builtin.shell: mvn clean package && mv target/shipping-1.0.jar  shipping.jar
-  args:
-     chdir: /home/roboshop{{COMPONENT}}
-  become_user: roboshop
+
+#- name: Make Maven Package
+#  ansible.builtin.shell: mvn clean package && mv target/shipping-1.0.jar  shipping.jar
+#  args:
+#     chdir: /home/roboshop{{COMPONENT}}
+#  become_user: roboshop
 
 - name: Setup SystemD
   include_role:
